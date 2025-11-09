@@ -139,11 +139,21 @@ android {
             keyPassword 'android'
         }
         // !! Add lines
-         release {
-            storeFile file(keystoreProperties['RELEASE_STORE_FILE'])
-            storePassword keystoreProperties['RELEASE_STORE_PASSWORD']
-            keyAlias keystoreProperties['RELEASE_KEY_ALIAS']
-            keyPassword keystoreProperties['RELEASE_KEY_PASSWORD']
+        // 本地构建时若未提供 keystore.properties，改用 debug.keystore 以避免 "path may not be null" 错误
+        release {
+            def releaseStoreFile = keystoreProperties['RELEASE_STORE_FILE']
+            if (releaseStoreFile) {
+                storeFile file(releaseStoreFile)
+                storePassword keystoreProperties['RELEASE_STORE_PASSWORD']
+                keyAlias keystoreProperties['RELEASE_KEY_ALIAS']
+                keyPassword keystoreProperties['RELEASE_KEY_PASSWORD']
+            } else {
+                // fallback for local builds without release keystore
+                storeFile file('debug.keystore')
+                storePassword 'android'
+                keyAlias 'androiddebugkey'
+                keyPassword 'android'
+            }
         }
     }
     splits {

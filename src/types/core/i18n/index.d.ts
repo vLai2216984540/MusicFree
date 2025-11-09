@@ -296,6 +296,9 @@ export interface ILanguageData {
     "basicSettings.clickMusicInAlbum": string; // 点击专辑内单曲时
     "basicSettings.clickMusicInAlbum.playMusic": string; // 播放歌曲
     "basicSettings.clickMusicInAlbum.playAlbum": string; // 播放专辑
+    // 抽屉/手势设置
+    "basicSettings.drawer.fullScreenSwipe": string; // 全屏侧滑打开侧边栏
+    "basicSettings.drawer.swipeMinDistance": string; // 侧滑触发距离
     
     "basicSettings.musicOrderInLocalSheet": string; // 新建歌单时默认歌曲排序
     "basicSettings.musicOrderInLocalSheet.title": string; // 按歌曲名排序

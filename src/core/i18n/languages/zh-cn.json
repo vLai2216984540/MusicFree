@@ -223,6 +223,8 @@
     "backupAndResume.resumeMode.overwrite-default": "合并默认歌单，其他歌单恢复为新歌单",
     "backupAndResume.resumeMode.overwrite": "合并同名歌单",
     "basicSettings.common": "常规",
+    "basicSettings.drawer.fullScreenSwipe": "全屏侧滑打开侧边栏",
+    "basicSettings.drawer.swipeMinDistance": "侧滑触发距离",
     "basicSettings.maxHistoryLength": "历史记录最多保存条数",
     "basicSettings.musicDetailDefault": "打开歌曲详情页时",
     "basicSettings.musicDetailDefault.album": "默认展示歌曲封面",

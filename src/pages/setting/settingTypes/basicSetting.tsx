@@ -130,6 +130,14 @@ export default function BasicSetting() {
     const showExitOnNotification = useAppConfig("basic.showExitOnNotification");
     const musicOrderInLocalSheet = useAppConfig("basic.musicOrderInLocalSheet");
     const tryChangeSourceWhenPlayFail = useAppConfig("basic.tryChangeSourceWhenPlayFail");
+    // Drawer 手势配置
+    const drawerFullScreenSwipe = useAppConfig("basic.drawerFullScreenSwipe");
+    const drawerSwipeMinDistance = useAppConfig("basic.drawerSwipeMinDistance");
+    // 本地预览状态：滑动过程中实时更新显示，但仅在松手时持久化配置
+    const [drawerSwipeMinDistancePreview, setDrawerSwipeMinDistancePreview] = useState(drawerSwipeMinDistance ?? 100);
+    useEffect(() => {
+        setDrawerSwipeMinDistancePreview(drawerSwipeMinDistance ?? 100);
+    }, [drawerSwipeMinDistance]);
 
     const { t } = useI18N();
 
@@ -188,6 +196,36 @@ export default function BasicSetting() {
                     "basic.showExitOnNotification",
                     showExitOnNotification ?? false,
                 ),
+                // 侧边栏手势设置
+                createSwitch(
+                    t("basicSettings.drawer.fullScreenSwipe"),
+                    "basic.drawerFullScreenSwipe",
+                    drawerFullScreenSwipe ?? true,
+                ),
+                {
+                    title: t("basicSettings.drawer.swipeMinDistance"),
+                    right: (
+                        <View style={{ flexDirection: "row", alignItems: "center" }}>
+                            <Slider
+                                style={{ width: rpx(300), flexShrink: 0 }}
+                                minimumValue={5}
+                                maximumValue={200}
+                                step={5}
+                                value={drawerSwipeMinDistancePreview}
+                                onValueChange={val => {
+                                    setDrawerSwipeMinDistancePreview(Math.round(val as number));
+                                }}
+                                onSlidingComplete={val => {
+                                    const rounded = Math.round(val as number);
+                                    setDrawerSwipeMinDistancePreview(rounded);
+                                    Config.setConfig("basic.drawerSwipeMinDistance", rounded);
+                                }}
+                            />
+                            <ThemeText numberOfLines={1} style={styles.sliderValueText}>{drawerSwipeMinDistancePreview} px</ThemeText>
+                        </View>
+                    ),
+                    onPress() { /* 仅展示滑杆，不需要点击行为 */ },
+                },
             ],
         },
         {
@@ -657,6 +695,12 @@ const styles = StyleSheet.create({
         height: rpx(80),
         justifyContent: "center",
         alignItems: "center",
+    },
+    sliderValueText: {
+        width: rpx(96),
+        marginLeft: rpx(12),
+        textAlignVertical: "center",
+        textAlign: "right",
     },
 });
 

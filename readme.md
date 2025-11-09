@@ -6,7 +6,21 @@
 ![GitHub forks](https://img.shields.io/github/forks/maotoumao/MusicFree)
 ![star](https://gitcode.com/maotoumao/MusicFree/star/badge.svg)
 
+# MusicFree（定制版）
+
 ![GitHub License](https://img.shields.io/github/license/maotoumao/MusicFree)
+
+重要说明：本项目基于原仓库进行定制与小幅调整，完整功能介绍、文档与更新内容请以原仓库为准。
+
+原仓库出处：
+- GitHub：https://github.com/maotoumao/MusicFree
+
+后续约定：每次迭代仅在此文件记录新增功能点与修复的 Bug，其他说明请前往原仓库查看。
+
+更新（2025-11-09）：
+- 新增：主界面右滑打开侧边栏，支持配置开关和自定义滑动触发距离（基本设置-常规）。
+
+如需了解完整功能或使用说明，请前往原仓库。
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/maotoumao/MusicFree/total)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/maotoumao/MusicFree)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/maotoumao/MusicFree)

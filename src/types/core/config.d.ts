@@ -31,6 +31,8 @@ export interface IAppConfigProperties {
     "basic.showExitOnNotification": boolean;
     "basic.musicOrderInLocalSheet": SortType;
     "basic.tryChangeSourceWhenPlayFail": boolean;
+    "basic.drawerFullScreenSwipe": boolean;
+    "basic.drawerSwipeMinDistance": number;
 
     // Lyric
     "lyric.showStatusBarLyric": boolean;

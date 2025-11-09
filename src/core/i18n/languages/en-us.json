@@ -223,6 +223,8 @@
     "backupAndResume.resumeMode.overwrite-default": "Merge Default Playlist, Others as New Playlists",
     "backupAndResume.resumeMode.overwrite": "Merge Same Name Playlists",
     "basicSettings.common": "General",
+    "basicSettings.drawer.fullScreenSwipe": "Full-screen swipe to open sidebar",
+    "basicSettings.drawer.swipeMinDistance": "Swipe trigger distance",
     "basicSettings.maxHistoryLength": "Maximum History Records",
     "basicSettings.musicDetailDefault": "When opening song detail page",
     "basicSettings.musicDetailDefault.album": "Show album cover by default",
